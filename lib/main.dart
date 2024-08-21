@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'binding/initial_binding.dart';
+
 void main() {
   runApp(const MyApp());
 }

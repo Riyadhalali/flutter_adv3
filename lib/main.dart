@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_adv3/core/service/my_services.dart';
+import 'package:flutter_adv3/core/service/routes.dart';
+import 'package:flutter_adv3/routes.dart';
+import 'package:flutter_adv3/views/home_screen/screen/home_screen.dart';
 import 'package:get/get.dart';
 
 import 'binding/initial_binding.dart';
 
-void main() {
+
+void main()  async{
   runApp(const MyApp());
+  MyService();
+  await initialServices();
 }
 
 
@@ -24,7 +31,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialBinding: InitialBinding(),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      getPages: routes,
+      initialRoute: Routes.homeScreen,
+
     );
   }
 }

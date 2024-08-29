@@ -9,6 +9,12 @@ import 'binding/initial_binding.dart';
 
 
 void main()  async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // load the saved theme data
+  MyService myService=MyService();
+  final themeMode=await myService.getThemeMode();
   runApp(const MyApp());
   MyService();
   await initialServices();
@@ -24,12 +30,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       initialBinding: InitialBinding(),
       getPages: routes,
       initialRoute: Routes.homeScreen,

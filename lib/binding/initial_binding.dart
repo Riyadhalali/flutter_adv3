@@ -8,6 +8,6 @@ class InitialBinding extends Bindings{
   void dependencies() {
     // TODO: implement dependencies
     Get.put(Crud());
-    Get.put(HomeController(),permanent: true);
+    Get.put(HomeController());
   }
 }

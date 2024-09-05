@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MyService myService = Get.find<MyService>();
+    final MyService myService =
+        Get.find<MyService>(); // for loading the shared preferences
 
     return Obx(() {
       return GetMaterialApp(
@@ -27,10 +28,11 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
-        themeMode: myService.themeMode.value, // Use the theme mode from MyService
+        themeMode:
+            myService.themeMode.value, // Use the theme mode from MyService
         initialBinding: InitialBinding(),
         getPages: routes,
-        initialRoute: Routes.homeScreen,
+        initialRoute: Routes.productScreen,
       );
     });
   }

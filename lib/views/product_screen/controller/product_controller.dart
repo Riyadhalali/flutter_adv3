@@ -36,9 +36,12 @@ class ProductController extends GetxController {
   void addToCart(Product product) {
     // Check if the product is already in the cart
     int index = cartItems.indexWhere((item) => item.product == product);
+    // if item is not in the cart
     if (index == -1) {
       cartItems.add(CartItem(product: product, quantity: product.quantity));
-    } else {
+    }
+    // item is in the cart
+    else {
       cartItems[index].quantity += product.quantity;
     }
     update(); // Manually trigger UI update
